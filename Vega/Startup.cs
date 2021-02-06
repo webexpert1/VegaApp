@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Reflection;
 using Vega.Services;
 
 namespace Vega
@@ -23,6 +25,7 @@ namespace Vega
             services.AddControllers();
             services.AddCors();
             services.AddDbContext<VegaDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

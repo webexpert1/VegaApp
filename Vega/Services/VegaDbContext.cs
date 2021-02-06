@@ -14,5 +14,6 @@ namespace Vega.Services
 
         }
         public DbSet<Make> Makes { get; set; }
+        public DbSet<Feature> Features { get; set; }
     }
 }
